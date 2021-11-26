@@ -11,7 +11,9 @@ export const EmployeeList = () => {
     )
 
     return (
+        
         <section className="employees">
+            <h2>Current Employees</h2>
             {
                 employees.map(employee => {
                     return (

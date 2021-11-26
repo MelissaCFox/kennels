@@ -12,6 +12,7 @@ export const CustomerList = () => {
 
     return (
         <section className="customers">
+            <h2>Current Customers</h2>
             {
                 customers.map(customer => {
                     return (

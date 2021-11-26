@@ -14,6 +14,7 @@ export const AnimalList = () => {
 
     return (
         <section className="animals">
+            <h2>Current Animal Friends</h2>
             {
                 animals.map(animal => {
                     return (

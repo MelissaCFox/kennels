@@ -11,7 +11,7 @@ export const LocationList = () => {
 
     return (
         <article className="locations">
-            <h2>List of Locations</h2>
+            <h2>Locations</h2>
 
             {
                 locations.map(location => {
