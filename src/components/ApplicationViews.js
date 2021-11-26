@@ -1,5 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { AnimalDetail } from "./animal/AnimalDetail"
+import { AnimalForm } from "./animal/AnimalForm"
 import { AnimalList } from "./animal/AnimalList"
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { CustomerList } from "./customer/CustomerList"
@@ -29,6 +31,16 @@ export const ApplicationViews = () => {
             <AnimalProvider>
                 <Route path="/animals">
                     <AnimalList />
+                </Route>
+
+                <Route path="/animals/create">
+                    <AnimalForm />
+                </Route>
+            </AnimalProvider>
+
+            <AnimalProvider>
+                <Route exact path="/animals/detail/:animalId(\d+)">
+                    <AnimalDetail />
                 </Route>
             </AnimalProvider>
 
