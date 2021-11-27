@@ -1,6 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { AnimalDetail } from "./animal/AnimalDetail"
+import { AnimalDetail } from "./animal/Animal"
 import { AnimalForm } from "./animal/AnimalForm"
 import { AnimalList } from "./animal/AnimalList"
 import { AnimalProvider } from "./animal/AnimalProvider"

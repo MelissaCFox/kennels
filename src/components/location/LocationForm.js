@@ -23,7 +23,7 @@ export const LocationForm = () => {
                 address: location.address
             }
             addLocation(newLocation)
-                .then(() => history.push("/locations"))
+            .then(() => history.push("/locations"))
         }
     }
 
