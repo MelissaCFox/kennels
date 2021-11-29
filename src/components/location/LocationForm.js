@@ -14,7 +14,8 @@ export const LocationForm = () => {
 
     const history = useHistory()
 
-    const saveLocation = () => {
+    const saveLocation = (event) => {
+        event.preventDefault()
         if (location.name === "" || location.address === "") {
             window.alert(`Please type in a name and address`)
         } else {

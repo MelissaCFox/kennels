@@ -3,13 +3,20 @@ import { AnimalContext } from "../animal/AnimalProvider"
 import "./Animal.css"
 import { useHistory } from 'react-router-dom';
 import { LocationContext } from "../location/LocationProvider";
+import { CustomerContext } from "../customer/CustomerProvider";
 
 export const AnimalForm = () => {
   const { addAnimal } = useContext(AnimalContext)
   const { locations, getLocations} = useContext(LocationContext)
+  const { customers, getCustomers } = useContext(CustomerContext)
 
   useEffect(() => {
     getLocations()
+  }, []
+  )
+
+  useEffect(() => {
+    getCustomers()
   }, []
   )
 
@@ -75,6 +82,22 @@ export const AnimalForm = () => {
         <div className="form-group">
           <label htmlFor="name">Animal breed:</label>
           <input type="text" id="breed" required autoFocus className="form-control" placeholder="Animal breed" value={animal.breed} onChange={handleControlledInputChange} />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="customer">Assign to Customer:</label>
+          <select name="customerId" id="customerId" className="form-control" value={animal.customerId} onChange={handleControlledInputChange}>
+            <option value="0">Select a Customer</option>
+            {
+              customers.map(
+                (customer) => {
+                  return <option key={customer.id} value={customer.id}>{customer.name}</option>
+                }
+              )
+            }
+          </select>
         </div>
       </fieldset>
 

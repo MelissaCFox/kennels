@@ -19,7 +19,8 @@ export const EmployeeForm = () => {
 
     const history = useHistory()
 
-    const saveEmployee = () => {
+    const saveEmployee = (event) => {
+        event.preventDefault()
         if (employee.name === "" || employee.locationId === 0) {
             window.alert("Please type in a name and assign a location")
         } else {
