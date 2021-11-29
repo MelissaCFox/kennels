@@ -11,6 +11,7 @@ export const AnimalDetail = () => {
 
 
     useEffect(() => {
+
         getAnimals()
         .then(() => {
 
