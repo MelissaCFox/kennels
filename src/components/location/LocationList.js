@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { LocationContext } from "./LocationProvider"
 
 export const LocationList = () => {
@@ -9,12 +9,12 @@ export const LocationList = () => {
 
     useEffect(() => {
         getLocations()
-    },[])
+    }, [])
 
 
     return (
         <article className="locations">
-            
+
             <button className="btn btn-primary" onClick={() => {
                 history.push("/locations/create")
             }}>
@@ -25,15 +25,13 @@ export const LocationList = () => {
             {
                 locations.map(location => {
                     return (
-                        <div key={location.id} className="location" id={`location--${location.id}`}>
-                            <div className="location__name">
-                                Facility: {location.name}
-                            </div>
-                            <div className="location__address">
-                                Address: {location.address}
-                            </div>
-
-                        </div>
+                        <>
+                            <Link to={`/locations/detail/${location.id}`} key={location.id}>
+                                {location.name}
+                            </Link>
+                            <div className="location-employeeNum">Number of Employees: {location.employees.length}</div>
+                            <div className="location-animalNum">Number of Current Animal Guests: {location.animals.length}</div>
+                        </>
                     )
                 })
             }

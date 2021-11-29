@@ -1,4 +1,5 @@
 import { useContext, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import { EmployeeContext } from "./EmployeeProvider"
 
@@ -22,19 +23,10 @@ export const EmployeeList = () => {
         <section className="employees">
             <h2>Current Employees</h2>
             {
-                employees.map(employee => {
-                    return (
-                        <div key={employee.id}
-                        className="employee" id={`employee--${employee.id}`}>
-                            <div className="employee_name">
-                                Name: {employee.name}
-                                Location: {employee.location.name}
-                            </div>
-                        </div>
-                    )
-                })
+                employees.map(employee => <Link to={`/employees/detail/${employee.id}`} key={employee.id}>
+                { employee.name }
+              </Link>)
             }
-
         </section>
         </>
 
